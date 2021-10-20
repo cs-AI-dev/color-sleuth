@@ -56,3 +56,4 @@ for x in range(8):
 if __name__ == "__main__":
   titleScreen.mainloop()
   master.mainloop()
+	
