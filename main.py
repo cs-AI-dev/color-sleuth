@@ -96,4 +96,5 @@ scoreBox.grid(row=2, column=1)
 
 if __name__ == "__main__":
   titleScreen.mainloop()
-  master.mainloop()
+  while True:
+    master.mainloop()
