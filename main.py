@@ -56,6 +56,7 @@ def Click(targ):
       turn = 2
     elif turn == 2:
       turn = 1
+  regenerateBgs()
   
 click = {
   1: Click(1),
