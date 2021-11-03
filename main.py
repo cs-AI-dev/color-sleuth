@@ -44,23 +44,24 @@ master.title("Color Sleuth")
 
 colorsBox = Frame(master, bg=bg)
 
-def Click1():
-  pass
+turn = 1
 
-def Click2():
-  pass
-
-def Click3():
-  pass
-
-def Click4():
-  pass
-
+def Click(targ):
+  if colorsBox[targ - 1]["bg"] == targetBg:
+    if turn == 1:
+      IncrementP1()
+    elif turn == 2:
+      IncrementP2()
+    if turn == 1:
+      turn = 2
+    elif turn == 2:
+      turn = 1
+  
 click = {
-  1: Click1,
-  2: Click2,
-  3: Click3,
-  4: Click4,
+  1: Click(1),
+  2: Click(2),
+  3: Click(3),
+  4: Click(4),
 }
 
 class ColorButton:
@@ -69,18 +70,22 @@ class ColorButton:
     this.object = Button(colorsBox, bg=normalBg, fg=bg, width=5, height=5, target=click[buttonNumber])
     this.object.grid(row=1, column=buttonNumber)
     
-buttons = []
-for x in range(6):
-  buttons.append(ColorButton(x + 1))
+colorsBox = []
+for x in range(4):
+  colorsBox.append(ColorButton(x + 1))
 colorsBox.grid(row=1, column=1)
 
 scoreBox = Frame(master, bg=bg)
 
 p1l = Label(scoreBox, text="P1: ", font=font, bg=bg, fg=fg)
+p1l.grid(row=1, column=1)
 p1s = Label(scoreBox, text="0", font=font, bg=bg, fg=fg)
+p1l.grid(row=1, column=2)
 
 p2l = Label(scoreBox, text="P2: ", font=font, bg=bg, fg=fg)
+p1l.grid(row=1, column=3)
 p2s = Label(scoreBox, text="0", font=font, bg=bg, fg=fg)
+p1l.grid(row=1, column=4)
 
 def IncrementP1():
   p1s["text"] = str(
